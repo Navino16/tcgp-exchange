@@ -1,6 +1,5 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import Navbar from "@/components/Navbar";
 
 export default async function Dashboard() {
     const session = await getServerSession(authOptions);
