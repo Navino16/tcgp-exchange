@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Providers from "@/app/providers";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "TCGP Exchange",
@@ -17,8 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <Navbar />  {/* Navbar visible sur toutes les pages */}
-          {children}
+          <Navbar />
+          <div className={"mainContainer"}>
+            {children}
+          </div>
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,14 +1,15 @@
 /* Navbar */
 .navbar {
     /*background-color: #2c3e50;  !* Assombrir la navbar pour plus de contraste *!*/
-    padding: 15px 30px;
+    padding: 15px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    right: 0; /* S'assurer qu'elle s'étend bien sur toute la largeur */
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Ombre plus marquée */
-    height: 80px; /* Hauteur de la navbar */
+    height: 70px; /* Hauteur de la navbar */
     transition: background-color 0.3s ease; /* Transition douce entre les thèmes */
 }
 
@@ -17,14 +18,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto; /* Centrer la navbar */
+    width: 100%;  /* Assurer que ça prend toute la largeur */
 }
 
 /* Logo */
 .logo {
-    font-size: 24px;
-    color: #ecf0f1;  /* Texte clair pour le contraste */
+    font-size: 26px;
+    /*color: #ecf0f1;  !* Texte clair pour le contraste *!*/
     text-decoration: none;
     font-weight: bold;
 }
@@ -39,28 +39,56 @@
 
 /* Style des liens */
 .navLink {
-    color: #ecf0f1;  /* Couleur claire pour le contraste */
     text-decoration: none;
     margin-left: 20px;
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 4px;
-    transition: background 0.3s ease, color 0.3s ease; /* Transition douce */
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
 /* Survol des liens */
 .navLink:hover {
     background-color: #1abc9c;  /* Lien survolé avec une couleur différente */
-    color: white;  /* Couleur du texte lors du survol */
+    /*color: white;  !* Couleur du texte lors du survol *!*/
 }
 
 /* Adaptation pour les thèmes clair et sombre */
-.light .navbar {
+.light {
     background-color: #2c3e50; /* Navbar claire pour le thème clair */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre plus douce dans le thème clair */
+    color: #fff;
 }
 
-.dark .navbar {
-    background-color: #ffffff; /* Navbar sombre pour le thème sombre */
+.dark {
+    background-color: #1f2b38; /* Navbar sombre pour le thème sombre */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Ombre plus marquée pour le thème sombre */
+    color: #fff;
+}
+
+/* Bouton de changement de thème ancré à droite */
+.themeToggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.themeToggle:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+
+/* Conteneur pour aligner les liens et le bouton de thème à droite */
+.navRight {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-left: auto; /* Pousse tout le contenu à droite */
 }

@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import styles from "@/styles/Login.module.css";
 import Link from "next/link";
+import {useState} from "react";
 
 type FormData = {
     email: string;
@@ -12,19 +13,31 @@ type FormData = {
 
 export default function Login() {
     const { register, handleSubmit } = useForm<FormData>();
+    const [error, setError] = useState<string | null>(null); // Stocke le message d'erreur
 
-    const onSubmit = async (data: {email: string, password: string}) => {
+    const onSubmit = async (data: { email: string; password: string }) => {
+        setError(null); // Réinitialiser l'erreur à chaque tentative
+
         const result = await signIn("credentials", {
             email: data.email,
             password: data.password,
-            callbackUrl: "/dashboard", // Redirection après connexion
+            redirect: false, // Empêche la redirection automatique
         });
+
+        if (result?.error) {
+            setError(result.error); // Stocke l'erreur pour l'afficher
+        } else {
+            window.location.href = "/dashboard"; // Redirige manuellement si succès
+        }
     };
 
     return (
         <div className={styles.container}>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <h1 className={styles.title}>Connexion</h1>
+
+                {error && <p className={styles.apiError}>{error}</p>} {/* Affichage de l'erreur */}
+
                 <input
                     {...register("email")}
                     type="email"
