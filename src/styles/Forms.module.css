@@ -1,0 +1,85 @@
+.form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Bordure plus douce */
+    border-radius: 4px;
+    background-color: #fafafa; /* Fond plus clair */
+    font-size: 1rem;
+    color: #333; /* Texte de couleur plus doux */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet lors du focus (quand l'utilisateur clique sur le champ) */
+.input:focus {
+    border-color: #0070f3; /* Bordure bleue lors du focus */
+    background-color: #fff; /* Fond blanc lors du focus */
+    box-shadow: 0 0 5px rgba(0, 112, 243, 0.3); /* Ombre légère autour du champ */
+    outline: none; /* Supprime le contour par défaut */
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
+
+.errorInput {
+    border-color: red;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Pour les erreurs d'API globales */
+.apiError {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #e0f8d7;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -5,5 +5,8 @@ export function middleware(request: NextRequestWithAuth) {
 }
 
 export const config = {
-    matcher: '/dashboard',
+    matcher: [
+        '/dashboard',
+        '/profile',
+    ],
 }

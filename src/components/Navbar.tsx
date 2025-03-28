@@ -60,9 +60,16 @@ export default function Navbar() {
                 <div className={styles.navRight}>
                     <ul className={styles.navLinks}>
                         {session ? (
-                            <li>
-                                <LogoutButton />
-                            </li>
+                            <>
+                                <li>
+                                    <Link href="/profile" className={styles.navLink}>
+                                        Profil
+                                    </Link>
+                                </li>
+                                <li>
+                                    <LogoutButton />
+                                </li>
+                            </>
                         ) : (
                             <>
                                 <li>

@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import styles from "@/styles/Login.module.css";
+import formStyles from "@/styles/Forms.module.css";
 import Link from "next/link";
 import {useState} from "react";
 
@@ -33,24 +34,24 @@ export default function Login() {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                <h1 className={styles.title}>Connexion</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
+                <h1 className={formStyles.title}>Connexion</h1>
 
-                {error && <p className={styles.apiError}>{error}</p>} {/* Affichage de l'erreur */}
+                {error && <p className={formStyles.apiError}>{error}</p>} {/* Affichage de l'erreur */}
 
                 <input
                     {...register("email")}
                     type="email"
                     placeholder="Email"
-                    className={styles.input}
+                    className={formStyles.input}
                 />
                 <input
                     {...register("password")}
                     type="password"
                     placeholder="Mot de passe"
-                    className={styles.input}
+                    className={formStyles.input}
                 />
-                <button type="submit" className={styles.button}>
+                <button type="submit" className={formStyles.button}>
                     Se connecter
                 </button>
 

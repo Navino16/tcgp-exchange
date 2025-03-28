@@ -2,6 +2,7 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "@/styles/Login.module.css";
+import formStyles from "@/styles/Forms.module.css";
 import React from "react";
 
 // Définir le type des données du formulaire
@@ -47,20 +48,20 @@ export default function Register() {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                <h1 className={styles.title}>Inscription</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
+                <h1 className={formStyles.title}>Inscription</h1>
 
                 {/* Affichage des erreurs d'API globales */}
-                {apiError && <p className={styles.apiError}>{apiError}</p>}
+                {apiError && <p className={formStyles.apiError}>{apiError}</p>}
 
                 {/* Champ email */}
                 <input
                     {...register("email", { required: "Email requis" })}
                     type="email"
                     placeholder="Email"
-                    className={`${styles.input} ${errors.email ? styles.errorInput : ''}`}
+                    className={`${formStyles.input} ${errors.email ? formStyles.errorInput : ''}`}
                 />
-                {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+                {errors.email && <p className={formStyles.error}>{errors.email.message}</p>}
 
                 {/* Champ mot de passe */}
                 <input
@@ -78,9 +79,9 @@ export default function Register() {
                     })}
                     type="password"
                     placeholder="Mot de passe"
-                    className={`${styles.input} ${errors.password ? styles.errorInput : ''}`}
+                    className={`${formStyles.input} ${errors.password ? formStyles.errorInput : ''}`}
                 />
-                {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+                {errors.password && <p className={formStyles.error}>{errors.password.message}</p>}
 
                 {/* Champ confirmation du mot de passe */}
                 <input
@@ -90,11 +91,11 @@ export default function Register() {
                     })}
                     type="password"
                     placeholder="Confirmer le mot de passe"
-                    className={`${styles.input} ${errors.confirmPassword ? styles.errorInput : ''}`}
+                    className={`${formStyles.input} ${errors.confirmPassword ? formStyles.errorInput : ''}`}
                 />
-                {errors.confirmPassword && <p className={styles.error}>{errors.confirmPassword.message}</p>}
+                {errors.confirmPassword && <p className={formStyles.error}>{errors.confirmPassword.message}</p>}
 
-                <button type="submit" className={styles.button}>
+                <button type="submit" className={formStyles.button}>
                     S&#39;inscrire
                 </button>
 
